@@ -5,4 +5,5 @@ let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
 set rtp+=/usr/local/opt/fzf
+set number relativenumber
 
