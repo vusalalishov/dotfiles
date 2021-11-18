@@ -7,3 +7,7 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 set rtp+=/usr/local/opt/fzf
 set number relativenumber
 
+
+filetype plugin on
+syntax on
+
