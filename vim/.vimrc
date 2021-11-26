@@ -1,3 +1,4 @@
+source $VIMRUNTIME/defaults.vim
 source $HOME/.vim/cfg/coc.cfg
 source $HOME/.vim/cfg/nerd.cfg
 

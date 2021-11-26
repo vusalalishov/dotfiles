@@ -1,0 +1,9 @@
+IGNORE_*.java
+IGNORE_Makefile
+.idea
+telepresence.log
+.DS_Store
+Chart.lock
+/charts
+node_modules
+.swp
