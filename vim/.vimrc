@@ -13,3 +13,5 @@ let $FZF_DEFAULT_COMMAND = 'find .'
 filetype plugin on
 syntax on
 
+set splitbelow
+set splitright
