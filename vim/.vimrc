@@ -1,5 +1,5 @@
-source ./cfg/coc.cfg
-source ./cfg/nerd.cfg
+source $HOME/.vim/cfg/coc.cfg
+source $HOME/.vim/cfg/nerd.cfg
 
 
 :nmap .r viwp
