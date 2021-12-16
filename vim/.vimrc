@@ -4,7 +4,7 @@ source $HOME/.vim/cfg/nerd.cfg
 
 
 nmap .r viwp
-set tabstop=2 shiftwidth=2 expandtab autoindent
+set tabstop=4 shiftwidth=4 expandtab autoindent
 
 set rtp+=/usr/local/opt/fzf
 set number relativenumber

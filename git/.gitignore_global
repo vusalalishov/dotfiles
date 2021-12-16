@@ -7,3 +7,4 @@ Chart.lock
 /charts
 node_modules
 .swp
+.factorypath
