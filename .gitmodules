@@ -13,3 +13,12 @@
 [submodule "vim/pack/plugins/start/coc.vim"]
 	path = vim/pack/plugins/start/coc.vim
 	url = https://github.com/neoclide/coc.nvim
+[submodule "vim/pack/plugins/start/vim-fugitive"]
+	path = vim/pack/plugins/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
+[submodule "vim/pack/plugins/start/vim.fugitive-github"]
+	path = vim/pack/plugins/start/vim.fugitive-github
+	url = https://github.com/tpope/vim-rhubarb
+[submodule "vim/pack/plugins/start/vim.fugitive-gitlab"]
+	path = vim/pack/plugins/start/vim.fugitive-gitlab
+	url = https://github.com/shumphrey/fugitive-gitlab.vim
