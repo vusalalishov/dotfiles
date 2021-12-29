@@ -6,5 +6,6 @@ telepresence.log
 Chart.lock
 /charts
 node_modules
-.swp
+*.swp
 .factorypath
+

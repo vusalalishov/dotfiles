@@ -3,11 +3,12 @@ source $HOME/.vim/cfg/coc.cfg
 source $HOME/.vim/cfg/nerd.cfg
 
 
-nmap .r viwp
-set tabstop=4 shiftwidth=4 expandtab autoindent
+set tabstop=2 softtabstop=2 shiftwidth=2 expandtab autoindent
 
 set rtp+=/usr/local/opt/fzf
 set number relativenumber
+set list
+set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·
 
 
 let $FZF_DEFAULT_COMMAND = 'find .'
@@ -17,3 +18,7 @@ syntax on
 
 set splitbelow
 set splitright
+
+let mapleader="\\"
+let maplocalleader="\\"
+nnoremap <Leader>ft :topleft vsplit \| e.<CR>
