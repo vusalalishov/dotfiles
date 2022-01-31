@@ -1,0 +1,9 @@
+set idearefactormode=keep
+set number relativenumber
+
+let mapleader=";"
+let maplocalleader=";"
+
+source ~/.vimrc
+
+nmap <Leader>cn <S-F6>

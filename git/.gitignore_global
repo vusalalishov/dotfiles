@@ -8,4 +8,4 @@ Chart.lock
 node_modules
 *.swp
 .factorypath
-
+*.iml

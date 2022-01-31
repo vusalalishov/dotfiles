@@ -17,7 +17,7 @@ if _has kubectl; then
   alias kpf='kubectl port-forward'
 fi
 
-alias l='ls -lah'
+alias l='ls -latGhFiT'
 alias tp='telepresence'
 
 alias dockviz="docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz"

@@ -19,3 +19,9 @@
 [submodule "vim/pack/plugins/start/vim.fugitive-gitlab"]
 	path = vim/pack/plugins/start/vim.fugitive-gitlab
 	url = https://github.com/shumphrey/fugitive-gitlab.vim
+[submodule "vim/pack/plugins/start/NERDtree"]
+	path = vim/pack/plugins/start/NERDtree
+	url = https://github.com/preservim/nerdtree
+[submodule "vim/pack/plugins/start/vim-bookmarks"]
+	path = vim/pack/plugins/start/vim-bookmarks
+	url = https://github.com/MattesGroeger/vim-bookmarks
