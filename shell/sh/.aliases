@@ -22,3 +22,7 @@ alias tp='telepresence'
 
 alias dockviz="docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz"
 alias grep="grep -i"
+
+alias kgc='kubectl config get-contexts'
+alias kuc='kubectl config use-context'
+alias kcc='kubectl config current-context'

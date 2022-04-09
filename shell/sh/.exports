@@ -1,25 +1,25 @@
-export PATH="/usr/local/go/bin$PATH"
-
 bindkey "^[^[[D" backward-word
 bindkey "^[^[[C" forward-word
 
-
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-
 
 export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
 export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
 export CFLAGS="-I/usr/local/opt/openssl@1.1/include"
 export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
-export LIBRARY_PATH=/usr/local/Cellar/openssl@1.1/1.1.1k/lib
-export PATH=$PATH:$HOME/tools/
-export PATH=$PATH:$HOME/.asdf/shims
-export JAVA_HOME=$(asdf which java | sed 's=/bin/java==g')
+export LIBRARY_PATH="/usr/local/Cellar/openssl@1.1/1.1.1k/lib"
+export JAVA_HOME=`asdf which java | sed 's=/bin/java==g'`
 
 eval $(thefuck --alias)
-export PATH="/usr/local/opt/avr-gcc@8/bin:$PATH"
 
 export LDFLAGS="-L/usr/local/opt/avr-gcc@8/lib"
 export GPG_TTY=$(tty)
 
+export PATH="/usr/local/go/bin:$PATH"
+export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
+export PATH="$PATH:$HOME/tools/protoc/bin:$HOME/go-bin"
+export PATH="/usr/local/opt/avr-gcc@8/bin:$PATH"
+export PATH="$PATH:$HOME/tools/"
+export PATH="$HOME/.asdf/shims:$PATH"

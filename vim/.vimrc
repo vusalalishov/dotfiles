@@ -1,5 +1,5 @@
-let mapleader=";"
-let maplocalleader=";"
+let mapleader=" "
+let maplocalleader=" "
 
 source $VIMRUNTIME/defaults.vim
 source $HOME/.vim/cfg/coc.cfg
