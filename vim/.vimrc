@@ -15,7 +15,7 @@ set list
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·
 
 
-let $FZF_DEFAULT_COMMAND = 'find .'
+let $FZF_DEFAULT_COMMAND = 'ag .'
 
 filetype plugin on
 syntax on
@@ -27,6 +27,11 @@ nnoremap <Leader>ft :NERDTree<CR>
 nnoremap <Leader>gf :GFiles<CR>
 nnoremap <Leader>ff :Files<CR>
 nnoremap <Leader>f :Rg<CR>
+nmap <leader>fl  :CocFix<CR>
+
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 " navigation
 map <C-j> 10j
