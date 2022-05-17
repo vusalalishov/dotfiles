@@ -19,6 +19,7 @@ export GPG_TTY=$(tty)
 export PATH="/usr/local/go/bin:$PATH"
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
+export PATH=$(brew --prefix)/opt/findutils/libexec/gnubin:$PATH
 export PATH="$PATH:$HOME/tools/protoc/bin:$HOME/go-bin"
 export PATH="/usr/local/opt/avr-gcc@8/bin:$PATH"
 export PATH="$PATH:$HOME/tools/"
