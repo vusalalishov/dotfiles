@@ -29,6 +29,10 @@ nnoremap <Leader>ff :Files<CR>
 nnoremap <Leader>f :Rg<CR>
 nmap <leader>fl  :CocFix<CR>
 
+nmap <leader>y "*
+nnoremap <leader>p "*p
+vnoremap <leader>p "*p
+
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
