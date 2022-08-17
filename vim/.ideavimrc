@@ -52,6 +52,7 @@ map <silent> <C-t>p <Action>(ParameterInfo)
 map <silent> <C-t>m <Action>(ExtractMethod)
 map <silent> <C-t>v <Action>(IntroduceVariable)
 map <silent> <C-t>k <Action>(IntroduceParameter)
+map <silent> <C-t>n <Action>(Generate)
 
 
 " search/find

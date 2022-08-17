@@ -14,24 +14,47 @@ set number relativenumber
 set list
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·
 
+set foldmethod=manual
+set nofoldenable
 
 let $FZF_DEFAULT_COMMAND = 'ag .'
+let g:indentLine_setConceal = 0
 
 filetype plugin on
 syntax on
+set background=dark
 
 set splitbelow
 set splitright
 
-nnoremap <Leader>ft :NERDTree<CR>
+nnoremap <Leader>ft :NERDTreeToggle<CR>
 nnoremap <Leader>gf :GFiles<CR>
 nnoremap <Leader>ff :Files<CR>
 nnoremap <Leader>f :Rg<CR>
 nmap <leader>fl  :CocFix<CR>
 
-nmap <leader>y "*
+" yanking/pasting from the clipboard
+nnoremap <leader>y "*
+vnoremap <leader>y "*
 nnoremap <leader>p "*p
 vnoremap <leader>p "*p
+
+" window resizing
+map <leader>hi <C-w>3>
+map <leader>hd <C-w>3<
+
+" useful mappings
+inoremap <c-u> <esc>viwUwa
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <silent> <leader>gd :call CocAction('jumpDefinition', 'vsplit')<cr>
+inoremap <silent><expr> <c-space> coc#refresh()
+nnoremap <silent> rr :call CocActionAsync('rename')<cr>
+nnoremap <silent> <C-f> :BLines<cr>
+
+" buffer
+nnoremap <leader>bn :bnext<cr>
+nnoremap <leader>bp :bprev<cr>
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
@@ -43,7 +66,12 @@ map <C-k> 10k
 map <C-h> 5b
 map <C-l> 5w
 
+
 " [buffer number] followed by filename:
 set statusline=[%n]\ %t
 " show line#:column# on the right hand side
 set statusline+=%=%l:%c
+
+packadd! everforest
+
+color everforest
