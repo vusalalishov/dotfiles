@@ -69,3 +69,5 @@ set statusline+=%=%l:%c
 packadd! everforest
 
 color everforest
+
+hi Comment ctermfg=white cterm=NONE
