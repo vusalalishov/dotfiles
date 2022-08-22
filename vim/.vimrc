@@ -2,8 +2,6 @@ let mapleader=" "
 let maplocalleader=" "
 
 source $VIMRUNTIME/defaults.vim
-source $HOME/.vim/cfg/coc.cfg
-source $HOME/.vim/cfg/nerd.cfg
 
 
 set tabstop=4 softtabstop=4 shiftwidth=4 autoindent
@@ -31,7 +29,6 @@ nnoremap <Leader>ft :NERDTreeToggle<CR>
 nnoremap <Leader>gf :GFiles<CR>
 nnoremap <Leader>ff :Files<CR>
 nnoremap <Leader>f :Rg<CR>
-nmap <leader>fl  :CocFix<CR>
 
 " yanking/pasting from the clipboard
 nnoremap <leader>y "*
@@ -47,9 +44,6 @@ map <leader>hd <C-w>3<
 inoremap <c-u> <esc>viwUwa
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
-nnoremap <silent> <leader>gd :call CocAction('jumpDefinition', 'vsplit')<cr>
-inoremap <silent><expr> <c-space> coc#refresh()
-nnoremap <silent> rr :call CocActionAsync('rename')<cr>
 nnoremap <silent> <C-f> :BLines<cr>
 
 " buffer
