@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/Users/vusalalishov/projects/helm/super-chart/connectivity'
+let g:netrw_dirhist_1='/Users/vusalalishov/projects/helm/super-chart'
+let g:netrw_dirhist_0='/Users/vusalalishov/projects/c/vim/src'
+let g:netrw_dirhist_9='/Users/vusalalishov/projects/dotfiles/shell/sh'
+let g:netrw_dirhist_8='/Users/vusalalishov/projects/dotfiles/shell'
+let g:netrw_dirhist_7='/Users/vusalalishov/projects/dotfiles/shell/zsh'
+let g:netrw_dirhist_6='/Users/vusalalishov/projects/dotfiles/shell'
+let g:netrw_dirhist_5='/Users/vusalalishov/projects/dotfiles'
+let g:netrw_dirhist_4='/Users/vusalalishov/projects/c/vim/src'
+let g:netrw_dirhist_3='/Users/vusalalishov/projects/dotfiles/shell/sh'

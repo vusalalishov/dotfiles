@@ -37,3 +37,9 @@
 [submodule "vim/pack/plugins/start/conjure"]
 	path = vim/pack/plugins/start/conjure
 	url = git@github.com:Olical/conjure.git
+[submodule "vim/pack/plugins/start/ycm"]
+	path = vim/pack/plugins/start/ycm
+	url = git@github.com:VundleVim/Vundle.vim.git
+[submodule "vim9/pack/plugins/start/ycm"]
+	path = vim9/pack/plugins/start/ycm
+	url = git@github.com:ycm-core/YouCompleteMe.git

@@ -26,3 +26,6 @@ alias grep="grep -i"
 alias kgc='kubectl config get-contexts'
 alias kuc='kubectl config use-context'
 alias kcc='kubectl config current-context'
+
+alias gp='cd $(find  ~/projects -maxdepth 2 -type d | fzf)'
+alias python='python3'
