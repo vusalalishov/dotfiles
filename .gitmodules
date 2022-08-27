@@ -43,3 +43,21 @@
 [submodule "vim9/pack/plugins/start/ycm"]
 	path = vim9/pack/plugins/start/ycm
 	url = git@github.com:ycm-core/YouCompleteMe.git
+[submodule "vim/.vim/pack/plugins/start/fzf.vim"]
+	path = vim/.vim/pack/plugins/start/fzf.vim
+	url = git@github.com:junegunn/fzf.vim.git
+[submodule "vim/.vim/pack/plugins/start/vim-fugitive"]
+	path = vim/.vim/pack/plugins/start/vim-fugitive
+	url = git@github.com:tpope/vim-fugitive.git
+[submodule "vim/.vim/pack/plugins/start/coc.nvim"]
+	path = vim/.vim/pack/plugins/start/coc.nvim
+	url = git@github.com:neoclide/coc.nvim.git
+[submodule "vim/.vim/pack/plugins/start/vim-sleuth"]
+	path = vim/.vim/pack/plugins/start/vim-sleuth
+	url = git@github.com:tpope/vim-sleuth.git
+[submodule "vim/.vim/pack/plugins/start/vim-airline"]
+	path = vim/.vim/pack/plugins/start/vim-airline
+	url = git@github.com:vim-airline/vim-airline.git
+[submodule "vim/.vim/pack/plugins/start/vim-commentary"]
+	path = vim/.vim/pack/plugins/start/vim-commentary
+	url = git@github.com:tpope/vim-commentary.git
