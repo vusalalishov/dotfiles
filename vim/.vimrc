@@ -2,7 +2,6 @@ let mapleader=" "
 let maplocalleader=" "
 
 source $VIMRUNTIME/defaults.vim
-source $HOME/.vim/.cocrc
 
 
 set tabstop=4 softtabstop=4 shiftwidth=4 autoindent

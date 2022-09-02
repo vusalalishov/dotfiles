@@ -8,7 +8,7 @@ export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
 export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
 export CFLAGS="-I/usr/local/opt/openssl@1.1/include"
 export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
-export LIBRARY_PATH="/usr/local/Cellar/openssl@1.1/1.1.1k/lib"
+export LIBRARY_PATH="/usr/local/Cellar/openssl@1.1/lib"
 export JAVA_HOME=`asdf which java | sed 's=/bin/java==g'`
 
 eval $(thefuck --alias)
