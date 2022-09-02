@@ -61,3 +61,15 @@
 [submodule "vim/.vim/pack/plugins/start/vim-commentary"]
 	path = vim/.vim/pack/plugins/start/vim-commentary
 	url = git@github.com:tpope/vim-commentary.git
+[submodule "vim/.vim/pack/plugins/start/vim-vinegar"]
+	path = vim/.vim/pack/plugins/start/vim-vinegar
+	url = git@github.com:tpope/vim-vinegar.git
+[submodule "vim/.vim/pack/plugins/start/fern.vim"]
+	path = vim/.vim/pack/plugins/start/fern.vim
+	url = git@github.com:lambdalisue/fern.vim.git
+[submodule "vim/.vim/pack/plugins/start/nerdtree"]
+	path = vim/.vim/pack/plugins/start/nerdtree
+	url = git@github.com:preservim/nerdtree.git
+[submodule "vim/.vim/pack/plugins/start/vim-go"]
+	path = vim/.vim/pack/plugins/start/vim-go
+	url = git@github.com:fatih/vim-go.git

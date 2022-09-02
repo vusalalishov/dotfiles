@@ -14,6 +14,7 @@ set list
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·
 
 set foldmethod=manual
+set foldlevelstart=1
 set nofoldenable
 
 let $FZF_DEFAULT_COMMAND = 'ag .'
@@ -21,15 +22,25 @@ let g:indentLine_setConceal = 0
 
 filetype plugin on
 syntax on
+set omnifunc=syntaxcomplete#Complete
 set background=dark
 
 set splitbelow
 set splitright
 
+let g:NERDTreeMinimalMenu=1
+
 nnoremap <Leader>ft :NERDTreeToggle<CR>
-nnoremap <Leader>gf :GFiles<CR>
+nnoremap <C-w>p :NERDTreeFind<cr>
 nnoremap <Leader>ff :Files<CR>
+nnoremap ff :GFiles<CR>
 nnoremap <Leader>f :Rg<CR>
+
+" coc
+nnoremap <leader>ss :CocList -I symbols<CR> 
+nnoremap <leader>dn :call CocActionAsync('diagnosticNext')<CR> 
+nnoremap <leader>dp :call CocActionAsync('diagnosticPrevious')<CR> 
+nnoremap <leader>sd :call CocActionAsync('doHover')<CR> 
 
 " yanking/pasting from the clipboard
 nnoremap <leader>y "*
