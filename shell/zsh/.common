@@ -10,10 +10,24 @@ fd() {
   cd "$dir"
 }
 
-# fh - search in your command history and execute selected command
+# fh - search in command history and execute selected command
 fh() {
   local command
   command=$( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
   print -s "$command"
   eval "$command"
+}
+
+grr() {
+  local remote_branch 
+  remote_branch=$(git branch -r | fzf)
+  if [[ -n "${remote_branch// }" ]]
+  then
+    local command
+    command="git checkout -b $1 --track $remote_branch"
+    echo $command
+    eval "$command"
+  else
+    echo "The branch name is empty!"
+  fi
 }
