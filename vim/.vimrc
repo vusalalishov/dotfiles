@@ -38,9 +38,6 @@ nnoremap ff :GFiles<CR>
 nnoremap <Leader>f :Rg<CR>
 
 " coc
-nnoremap <leader>ss :CocList -I symbols<CR> 
-nnoremap <leader>dn :call CocActionAsync('diagnosticNext')<CR> 
-nnoremap <leader>dp :call CocActionAsync('diagnosticPrevious')<CR> 
 nnoremap <leader>sd :call CocActionAsync('doHover')<CR> 
 
 " yanking/pasting from the clipboard
