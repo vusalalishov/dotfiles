@@ -2,7 +2,9 @@ let mapleader=" "
 let maplocalleader=" "
 
 source $VIMRUNTIME/defaults.vim
+source $HOME/projects/dotfiles/vim/.cocrc
 
+set completeopt+=menuone,noselect,noinsert
 
 set tabstop=4 softtabstop=4 shiftwidth=4 autoindent
 set ignorecase smartcase ruler
