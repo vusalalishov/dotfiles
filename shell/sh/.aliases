@@ -30,3 +30,6 @@ alias kcc='kubectl config current-context'
 alias gp='cd $(find  ~/projects -maxdepth 2 -type d | fzf)'
 alias gl='git log --graph --oneline --decorate --all'
 alias gb='git branch --list -a | sed "s/*\s//gi" | fzf'
+unalias gcm
+alias gtl='git tag --sort=v:refname'
+alias gco='git checkout $(git branch -l | fzf)'

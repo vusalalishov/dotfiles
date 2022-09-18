@@ -31,3 +31,58 @@ grr() {
     echo "The branch name is empty!"
   fi
 }
+
+gct() {
+  local tag
+  tag=$(git tag --list | fzf)
+  if [[ -n "${tag// }" ]]
+  then
+    local command
+    command="git checkout tags/$tag -b v$tag"
+    print -s "$command"
+    echo $command
+    eval "$command"
+  else
+    echo "The tag name is empty!"
+  fi
+}
+
+gcr() {
+  local branch
+  local new_name
+  new_name=$1
+  branch=$(git branch -r | fzf)
+  branch="${branch// }"
+  if [[ -n $branch ]]
+  then
+    local command
+    command="git checkout -b $new_name --track $branch"
+    print -s "$command"
+    echo $command
+    eval "$command"
+  else
+    echo "The branch name is empty!"
+  fi
+}
+
+can-i-oncall() {
+    for s in $(kubectl config get-contexts -o=name| grep oncall);
+    do
+        echo -n "$s ... ";
+        if kubectl --context="$s" cluster-info > /dev/null 2>/dev/null; then
+            echo "✅";
+        else
+            echo "🚫";
+        fi
+    done || exit 1
+}
+
+
+function gcm() {
+	git_branch=$(git branch --show-current)
+	prefix=$(echo $git_branch | grep -oP '[a-zA-Z-]+/[a-zA-Z]+-[0-9]+')
+	local message
+    echo -n "$prefix - " 
+	read message
+    git commit --signoff -m "$prefix - $message"
+}

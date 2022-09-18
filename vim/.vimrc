@@ -5,6 +5,7 @@ source $VIMRUNTIME/defaults.vim
 source $HOME/projects/dotfiles/vim/.cocrc
 
 set completeopt+=menuone,noselect,noinsert
+set hidden
 
 set tabstop=4 softtabstop=4 shiftwidth=4 autoindent
 set ignorecase smartcase ruler
@@ -37,6 +38,20 @@ nnoremap <Leader>ff :Files<CR>
 nnoremap ff :GFiles<CR>
 nnoremap <Leader>f :Rg<CR>
 
+" ALE
+let g:ale_fixers = {
+    \ 'java': ['google_java_format'],
+    \ }
+let g:ale_linters = {
+      \ 'java': ['eclipselsp']
+      \ }
+
+" alternate buffers
+nnoremap <BS> <C-^>
+
+" vim-go
+nnoremap <C-d> :GoDecls<CR>
+
 " coc
 nnoremap <leader>sd :call CocActionAsync('doHover')<CR> 
 
@@ -57,8 +72,9 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <silent> <C-f> :BLines<cr>
 
 " buffer
-nnoremap <leader>bn :bnext<cr>
-nnoremap <leader>bp :bprev<cr>
+nnoremap <leader>bn :bnext<CR>
+nnoremap <leader>bp :bprev<CR>
+nnoremap <C-s> :wa<CR>
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
