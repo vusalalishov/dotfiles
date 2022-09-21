@@ -79,10 +79,34 @@ can-i-oncall() {
 
 
 function gcm() {
-	git_branch=$(git branch --show-current)
-	prefix=$(echo $git_branch | grep -oP '[a-zA-Z-]+/[a-zA-Z]+-[0-9]+')
-	local message
-    echo -n "$prefix - " 
-	read message
-    git commit --signoff -m "$prefix - $message"
+  git_branch=$(git branch --show-current)
+  if [[ $git_branch =~ '(feat|fix)/(OPEN)-([0-9]*).*' ]] then
+    local message
+    local prefix
+    prefix="$match[1][$match[2]-$match[3]] -"
+    echo -n "$prefix "
+    read message
+    git commit --signoff -m "$prefix $message"
+  else
+    echo "Unable to derive the commit prefix from $git_branch"
+  fi
+}
+
+function dlink() {
+  git fetch -t
+  tag_from=$(git tag --list | fzf)
+  tag_to=$(git tag --list | fzf)
+  remote=$(git remote -v | grep push)
+  if [[ $remote =~ 'git@([a-zA-Z0-9.\-]*):([a-zA-Z0-9.\-]*)/([a-zA-Z0-9.\-]*).git' ]]; then
+    local url
+    url="https://$match[1]/$match[2]/$match[3]/-/compare/$tag_from...$tag_to"
+    echo -n $url | pbcopy
+    echo $url
+  else
+    echo "Can't parse remote: $remote"
+  fi
+}
+
+function mr() {
+  
 }

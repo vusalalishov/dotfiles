@@ -43,7 +43,8 @@ let g:ale_fixers = {
     \ 'java': ['google_java_format'],
     \ }
 let g:ale_linters = {
-      \ 'java': ['eclipselsp']
+      \ 'java': ['eclipselsp'],
+      \ 'go': ['gofmt', 'golangci-lint', 'vet']
       \ }
 
 " alternate buffers
@@ -97,3 +98,19 @@ packadd! everforest
 color everforest
 
 hi Comment ctermfg=white cterm=NONE
+
+
+function! GotoJump()
+" show dialog where we can choose the jump from the list
+  jumps
+  let j = input("Please select your jump: ")
+  if j != ''
+    let pattern = '\v\c^\+'
+    if j =~ pattern
+      let j = substitute(j, pattern, '', 'g')
+      execute "normal " . j . "\<c-i>"
+    else
+      execute "normal " . j . "\<c-o>"
+    endif
+  endif
+endfunction
