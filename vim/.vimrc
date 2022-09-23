@@ -31,6 +31,8 @@ set splitbelow
 set splitright
 
 let g:NERDTreeMinimalMenu=1
+let g:NERDTreeIgnore=['\.swp$', '\~$']
+let g:NERDTreeShowHidden=1
 
 nnoremap <Leader>ft :NERDTreeToggle<CR>
 nnoremap <C-w>p :NERDTreeFind<cr>
@@ -38,9 +40,10 @@ nnoremap <Leader>ff :Files<CR>
 nnoremap ff :GFiles<CR>
 nnoremap <Leader>f :Rg<CR>
 
-" spell
-set spell spelllang=en_us
+" Git
+nnoremap <C-g> :G 
 
+" spell
 augroup filetypes
 	au!
 	au FileType yaml,markdown,gitcommit setlocal spell
