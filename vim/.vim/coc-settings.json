@@ -1,3 +1,13 @@
 {
-  "java.jdt.ls.vmargs": "-javaagent:/usr/local/share/lombok/lombok-1.18.22.jar"
+  "java.jdt.ls.vmargs": "-javaagent:/usr/local/share/lombok/lombok-1.18.22.jar",
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "usePlaceholders": true
+      }
+    }
+  }
 }

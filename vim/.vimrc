@@ -38,6 +38,27 @@ nnoremap <Leader>ff :Files<CR>
 nnoremap ff :GFiles<CR>
 nnoremap <Leader>f :Rg<CR>
 
+" spell
+set spell spelllang=en_us
+
+augroup filetypes
+	au!
+	au FileType yaml,markdown,gitcommit setlocal spell
+augroup end
+
+nnoremap sn ]s
+nnoremap sN [s
+nnoremap sf :call FzfSpell()<CR>
+
+function! FzfSpellSink(word)
+  exe 'normal! "_ciw'.a:word
+endfunction
+
+function! FzfSpell()
+  let suggestions = spellsuggest(expand("<cword>"), 10)
+  return fzf#run({'source': suggestions, 'sink': function("FzfSpellSink"), 'down': 10 })
+endfunction
+
 " ALE
 let g:ale_fixers = {
     \ 'java': ['google_java_format'],
@@ -98,7 +119,7 @@ packadd! everforest
 color everforest
 
 hi Comment ctermfg=white cterm=NONE
-
+hi SpellBad cterm=underline
 
 function! GotoJump()
 " show dialog where we can choose the jump from the list
