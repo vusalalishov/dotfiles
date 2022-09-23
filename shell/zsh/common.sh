@@ -96,7 +96,7 @@ function dlink() {
   git fetch -t
   tag_from=$(git tag --list | fzf)
   tag_to=$(git tag --list | fzf)
-  remote=$(git remote -v | grep push)
+  remote=$(git remote show origin | grep push)
   if [[ $remote =~ 'git@([a-zA-Z0-9.\-]*):([a-zA-Z0-9.\-]*)/([a-zA-Z0-9.\-]*).git' ]]; then
     local url
     url="https://$match[1]/$match[2]/$match[3]/-/compare/$tag_from...$tag_to"
