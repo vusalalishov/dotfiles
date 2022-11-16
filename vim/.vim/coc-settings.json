@@ -1,5 +1,6 @@
 {
   "java.jdt.ls.vmargs": "-javaagent:/usr/local/share/lombok/lombok-1.18.22.jar",
+  "java.trace.server": "verbose",
   "languageserver": {
     "golang": {
       "command": "gopls",

@@ -86,7 +86,10 @@ function gcm() {
     prefix="$match[1][$match[2]-$match[3]] -"
     echo -n "$prefix "
     read message
-    git commit --signoff -m "$prefix $message"
+    local command
+    command=`git commit --signoff -m "$prefix $message"`
+    print -s "$command"
+    eval "$command"
   else
     echo "Unable to derive the commit prefix from $git_branch"
   fi
@@ -109,4 +112,10 @@ function dlink() {
 
 function mr() {
   
+}
+
+function for-each() {
+  local items
+  items=$(pbpaste)
+  for num (${(f)items}) echo $num
 }

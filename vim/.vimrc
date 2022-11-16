@@ -31,7 +31,7 @@ set splitbelow
 set splitright
 
 let g:NERDTreeMinimalMenu=1
-let g:NERDTreeIgnore=['\.swp$', '\~$']
+let g:NERDTreeIgnore=['\.swp$', '\~$', '\.DS_Store$']
 let g:NERDTreeShowHidden=1
 
 nnoremap <Leader>ft :NERDTreeToggle<CR>
@@ -49,8 +49,8 @@ augroup filetypes
 	au FileType yaml,markdown,gitcommit setlocal spell
 augroup end
 
-nnoremap sn ]s
-nnoremap sN [s
+nnoremap sn ]S
+nnoremap sN [S
 nnoremap sf :call FzfSpell()<CR>
 
 function! FzfSpellSink(word)
@@ -138,3 +138,10 @@ function! GotoJump()
     endif
   endif
 endfunction
+
+" vim hardcodes background color erase even if the terminfo file does
+" not contain bce (not to mention that libvte based terminals
+" incorrectly contain bce in their terminfo files). This causes
+" incorrect background rendering when using a color theme with a
+" background color.
+let &t_ut=''
