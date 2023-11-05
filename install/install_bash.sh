@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 source $HOME/.dotfiles/install/helix.sh
 
 ln -svf $HOME/.dotfiles/shell/bash/.bashrc ~
