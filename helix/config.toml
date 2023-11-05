@@ -1,0 +1,27 @@
+theme = "catppuccin_frappe"
+
+[editor]
+mouse = false
+middle-click-paste = false
+scroll-lines = 0
+shell = ["bash", "-c"]
+cursorline = true
+completion-trigger-len = 1
+rulers = [80, 120]
+
+[editor.statusline]
+left = ["mode", "spinner", "file-name", "file-modification-indicator"]
+center = []
+right = ["diagnostics", "selections", "position", "file-encoding", "file-type"]
+separator = "|"
+
+[editor.lsp]
+display-messages = true
+display-inlay-hints = true
+
+[editor.whitespace.render]
+space = "all"
+tab = "all"
+
+[editor.indent-guides]
+render = true
