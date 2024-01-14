@@ -10,7 +10,7 @@ set hidden
 set tabstop=4 softtabstop=4 shiftwidth=4 autoindent
 set ignorecase smartcase ruler
 
-set rtp+=/usr/local/opt/fzf
+set rtp+=/opt/homebrew/Cellar/fzf/0.38.0
 set number relativenumber
 set list
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·
@@ -20,6 +20,27 @@ set foldlevelstart=1
 set nofoldenable
 
 let $FZF_DEFAULT_COMMAND = 'ag .'
+
+" Export selections to quickfix list
+let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all,up:preview-up,down:preview-down,shift-up:preview-page-up,shift-down:preview-page-down'
+
+function! s:build_quickfix_list(lines)
+	call setqflist(getqflist() + map(copy(a:lines), '{ "filename": v:val }'))
+	copen
+	cc
+endfunction
+
+let g:fzf_action = {
+  \ 'ctrl-q': function('s:build_quickfix_list'),
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+function! Add_current_buffer_to_qflist()
+	call setqflist(getqflist() + ['{"filename": "current file" }'])
+endfunction
+" End
+
 let g:indentLine_setConceal = 0
 
 filetype plugin on
@@ -38,15 +59,13 @@ nnoremap <Leader>ft :NERDTreeToggle<CR>
 nnoremap <C-w>p :NERDTreeFind<cr>
 nnoremap <Leader>ff :Files<CR>
 nnoremap ff :GFiles<CR>
-nnoremap <Leader>f :Rg<CR>
-
-" Git
-nnoremap <C-g> :G 
+nnoremap <C-g> :Rg<CR>
+nnoremap <C-b> :Buffers<CR>
 
 " spell
 augroup filetypes
 	au!
-	au FileType yaml,markdown,gitcommit setlocal spell
+	au FileType yaml,markdown,gitcommit,ini setlocal spell
 augroup end
 
 nnoremap sn ]S
@@ -145,3 +164,11 @@ endfunction
 " incorrect background rendering when using a color theme with a
 " background color.
 let &t_ut=''
+
+" Python workspace root
+autocmd FileType python let b:coc_root_patterns = ['.git', '.env', 'tox.ini', 'setup.py']
+
+" Misc
+set re=0 " disable redrawtime limit
+
+autocmd BufNewFile,BufRead *.argo-yaml set filetype=yaml

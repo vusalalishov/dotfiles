@@ -4,7 +4,7 @@
 command_timeout = 2000
 
 format = """
-[$directory](bold red) $kubernetes $git_branch$git_commit$git_state$helm$status
+[$directory](bold red) $kubernetes $jobs $python$git_branch$git_commit$git_state$helm$status
 $character"""
 
 [directory]
@@ -18,5 +18,6 @@ format = "$symbol[$context](bold green) "
 [golang]
 disabled = true
 
-[python]
-disabled = true
+[jobs]
+number_threshold = 1
+symbol_threshold = 1

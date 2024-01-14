@@ -1,0 +1,42 @@
+[[language]]
+name = "python"
+file-types = ["py"]
+comment-token = "#"
+indent = { tab-width = 4, unit = "    " }
+formatter = { command = "black", args=["--quiet", "-"] }
+auto-format = true
+language-servers = ["jedi-language-server"]
+
+[language-server.gopls]
+command = "gopls"
+except-features = ["inlay-hints"]
+
+[language-server.gopls.config.hints]
+assignVariableTypes = false
+compositeLiteralFields = false
+constantValues = false
+functionTypeParameters = false
+parameterNames = false
+rangeVariableTypes = false
+
+[language-server.jedi-language-server]
+command = "jedi-language-server"
+config.workspace.symbols = { maxSymbols = 20, ignoreFolders = [".nox", ".tox", ".venv", "__pycache__", "venv"] }
+
+[[language]]
+name = "yaml"
+scope = "source.yaml"
+file-types = ["yml", "yaml", "argo-yaml"]
+comment-token = "#"
+indent = { tab-width = 2, unit = "  " }
+language-servers = [ "yaml-language-server" ]
+injection-regex = "yml|yaml|argo-yaml"
+
+[[grammar]]
+name = "yaml"
+source = { git = "https://github.com/ikatyang/tree-sitter-yaml", rev = "0e36bed171768908f331ff7dff9d956bae016efb" } # pragma: allowlist secret
+
+[language-server.yaml-language-server]
+command = "yaml-language-server"
+args = ["--stdio"]
+config = { yaml.keyOrdering = false }

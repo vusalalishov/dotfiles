@@ -1,5 +1,4 @@
 {
-  "java.jdt.ls.vmargs": "-javaagent:/usr/local/share/lombok/lombok-1.18.22.jar",
   "java.trace.server": "verbose",
   "languageserver": {
     "golang": {
@@ -10,5 +9,6 @@
         "usePlaceholders": true
       }
     }
-  }
+  },
+  "java.import.gradle.java.home": "/Users/vusal.alishov/Library/Java/JavaVirtualMachines/temurin-11.0.18/Contents/Home"
 }

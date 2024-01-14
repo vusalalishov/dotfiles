@@ -73,3 +73,12 @@
 [submodule "vim/.vim/pack/plugins/start/vim-go"]
 	path = vim/.vim/pack/plugins/start/vim-go
 	url = git@github.com:fatih/vim-go.git
+[submodule "nvim/pack/package/start/treesitter"]
+	path = nvim/pack/package/start/treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter.git
+[submodule "nvim/pack/colors/everforest"]
+	path = nvim/pack/colors/everforest
+	url = https://github.com/neanias/everforest-nvim.git
+[submodule "nvim/colors/everforest"]
+	path = nvim/colors/everforest
+	url = https://github.com/neanias/everforest-nvim.git

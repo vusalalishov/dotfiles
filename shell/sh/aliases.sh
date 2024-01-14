@@ -15,17 +15,16 @@ if _has kubectl; then
   alias kl='kubectl logs'
   alias kv='kubectl describe'
   alias kpf='kubectl port-forward'
+  alias kgc='kubectl config get-contexts'
+  alias kuc='kubectl config use-context $(kubectl config get-contexts -o name | fzf)'
+  alias kcc='kubectl config current-context'
 fi
 
-alias l='ls -latGhFiT'
+alias l='ls -laGhFiT'
 alias tp='telepresence'
 
 alias dockviz="docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz"
 alias grep="grep -i"
-
-alias kgc='kubectl config get-contexts'
-alias kuc='kubectl config use-context'
-alias kcc='kubectl config current-context'
 
 alias gp='cd $(find  ~/projects -maxdepth 2 -type d | fzf)'
 alias gl='git log --graph --oneline --decorate --all'
@@ -41,3 +40,11 @@ alias gdca='g diff --cached'
 alias gpush='git push --set-upstream origin $(git branch --show-current)'
 alias gpull='git pull origin $(git branch --show-current)'
 alias gcomm='g commit --signoff -m'
+alias gignore='vim .git/info/exclude'
+
+alias arm="env /usr/bin/arch -arm64 /bin/zsh --login"
+alias intel="env /usr/bin/arch -x86_64 /bin/zsh --login" 
+
+alias n='lima nerdctl'
+alias mp='multipass'
+alias db='devbox'

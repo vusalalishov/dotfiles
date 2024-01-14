@@ -12,6 +12,9 @@ map <silent> <C-s> <Action>(Back)
 
 map <Leader>z <Action>(ToggleDistractionFreeMode)
 
+" git actions
+map <silent> <Leader>b <Action>(Annotate)
+
 " code actions
 map <silent> <C-c>l <Action>(CommentByLineComment)
 
@@ -32,7 +35,7 @@ map <silent> <C-w>v <Action>(SplitVertically)
 map <silent> <C-w>s <Action>(SplitHorizontally)
 map <silent> <C-w>j <Action>(NextSplitter)
 map <silent> <C-w>k <Action>(PrevSplitter)
-map <silent> <C-w>p <Action>(SelectInProjectView)
+map <silent> <C-w>p :action SelectInProjectView<CR>
 map <silent> <C-w>w <Action>(Switcher)
 
 
