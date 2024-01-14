@@ -20,8 +20,7 @@ if _has kubectl; then
   alias kcc='kubectl config current-context'
 fi
 
-alias l='ls -laGhFiT'
-alias tp='telepresence'
+alias l='ls -latGhFiT'
 
 alias dockviz="docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz"
 alias grep="grep -i"

@@ -1,4 +1,4 @@
-theme = "everforest_dark"
+theme = "catppuccin_frappe"
 
 [editor]
 mouse = false
@@ -28,7 +28,3 @@ render = true
 
 [editor.file-picker]
 hidden = false
-
-[keys.normal]
-s = { s = ":wa" }
-X = ["extend_to_line_bounds", "extend_line_up"]
