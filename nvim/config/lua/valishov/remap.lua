@@ -1,11 +1,11 @@
 vim.g.mapleader = " "
 
-vim.keymap.set("n", "<C-x>", vim.cmd.Ex)
-vim.keymap.set("n", "<C-j>", "10j")
-vim.keymap.set("n", "<C-k>", "10k")
+Remap("n", "<C-x>", vim.cmd.Ex, "Open netrw")
+Remap("n", "<C-j>", "10j", "10 lines down")
+Remap("n", "<C-k>", "10k", "10 lines up")
 
-vim.keymap.set("x", "<leader>p", "\"_dp")
-vim.keymap.set("x", "<leader>P", "\"_dP")
+Remap("x", "<leader>p", "\"_dp", "Paste after cursor by preserving the contents of the registry")
+Remap("x", "<leader>P", "\"_dP", "Paste before cursor by preserving the contents of the registry")
 
-vim.keymap.set("n", "<leader>p", "\"*p")
-vim.keymap.set("v", "<leader>y", "\"*y")
+Remap("n", "<leader>p", "\"*p", "Paste from system clipboard")
+Remap("v", "<leader>y", "\"*y", "Yank to system clipboard")
