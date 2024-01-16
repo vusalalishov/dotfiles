@@ -47,3 +47,4 @@ alias intel="env /usr/bin/arch -x86_64 /bin/zsh --login"
 alias n='lima nerdctl'
 alias mp='multipass'
 alias db='devbox'
+alias vim='nvim'
