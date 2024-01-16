@@ -3,7 +3,8 @@ local tabsize = 4
 vim.opt.guicursor = ""
 
 vim.opt.number = true
-vim.opt.lcs = "multispace:---+,space:.,tab:>-"
+vim.opt.lcs = "multispace:...|,space:.,tab:>-"
+vim.opt.list = true
 
 vim.opt.tabstop = tabsize
 vim.opt.softtabstop = tabsize
