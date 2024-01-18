@@ -30,3 +30,10 @@ vim.opt.signcolumn = "yes"
 vim.opt.updatetime = 100
 
 vim.g.mapleader = " "
+
+local argo_group = vim.api.nvim_create_augroup("argo_yaml", { clear = true })
+vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
+    pattern = "*.argo-yaml",
+    command = "set filetype=yaml",
+    group = argo_group
+})

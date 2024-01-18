@@ -13,8 +13,9 @@ function Mapping:new(o)
     return o
 end
 
-Remap = function (mode, key, map, description)
-    vim.keymap.set(mode, key, map)
+-- TODO: the mappings are duplicated when called with the same mapping - prevent that
+Remap = function (mode, key, map, opts, description)
+    vim.keymap.set(mode, key, map, opts)
     table.insert(Mappings, Mapping:new{mode = mode, key = key, description = description})
 end
 
