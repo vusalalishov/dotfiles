@@ -34,11 +34,24 @@ lsp_config.pylsp.setup{
         pycodestyle = {
           ignore = {'W391'},
           maxLineLength = 100
+        },
+        pylint = {
+            enabled = false
         }
       }
     }
   }
 }
+
+lsp_config.pyright.setup({
+    settings = {
+        python = {
+            analysis = {
+                typeCheckingMode = "off"
+            }
+        }
+    }
+})
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
