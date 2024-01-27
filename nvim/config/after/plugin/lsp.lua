@@ -6,13 +6,10 @@ lsp_zero.on_attach(function(_, bufnr)
     -- TODO: the remaps are not set on startup but on buffer attach event - that's why the
     -- help wouldn't contain them unless a buffer with LSP support opened
 
-	Remap("n", "gd", function() vim.lsp.buf.definition() end, opts, "Go to definition")
-	Remap("n", "gr", function() vim.lsp.buf.references() end, opts, "Go to references")
+	Remap("n", "gd", function() vim.lsp.buf.definition() end, opts, "Go to implementation")
+	Remap("n", "gr", function() vim.lsp.buf.references() end, opts, "Go to implementation")
 	Remap("n", "gi", function() vim.lsp.buf.implementation() end, opts, "Go to implementation")
 	Remap("n", "K", function() vim.lsp.buf.hover() end, opts, "Show docs - hover")
-	Remap("n", "<leader>s", function() vim.lsp.buf.workspace_symbol() end, opts, "Workspace symbols")
-	Remap("n", "<leader>cs", function() vim.lsp.buf.document_symbol() end, opts, "Document symbols")
-	Remap("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts, "Open diagnostics floating window")
 	Remap("n", "[d", function() vim.diagnostic.goto_next() end, opts, "Next diagnostic")
 	Remap("n", "]d", function() vim.diagnostic.goto_prev() end, opts, "Prev diagnostic")
 	Remap("n", "<C-a>", function() vim.lsp.buf.code_action() end, opts, "Code actions")
@@ -48,10 +45,13 @@ lsp_config.pyright.setup({
         python = {
             analysis = {
                 typeCheckingMode = "off"
-            }
-        }
+            },
+            exclude = {"/build/**"}
+        },
     }
 })
+
+lsp_config.tsserver.setup({})
 
 require('mason').setup({})
 require('mason-lspconfig').setup({

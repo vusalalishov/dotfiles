@@ -31,6 +31,10 @@ vim.opt.updatetime = 100
 
 vim.g.mapleader = " "
 
+
+vim.opt.smartcase = true
+vim.opt.ignorecase = true
+
 local argo_group = vim.api.nvim_create_augroup("argo_yaml", { clear = true })
 vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
     pattern = "*.argo-yaml",

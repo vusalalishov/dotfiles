@@ -23,11 +23,6 @@ return require("packer").startup(function(use)
 	use("MunifTanjim/nui.nvim")
 
 	use {
-		"ThePrimeagen/harpoon",
-		as = "harpoon"
-	}
-
-	use {
 		"VonHeikemen/lsp-zero.nvim", branch = "v3.x",
 		as = "lsp-zero",
 		requires = {

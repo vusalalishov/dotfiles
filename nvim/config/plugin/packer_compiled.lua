@@ -100,11 +100,6 @@ _G.packer_plugins = {
     path = "/Users/vusal.alishov/.local/share/nvim/site/pack/packer/start/everforest",
     url = "https://github.com/neanias/everforest-nvim"
   },
-  harpoon = {
-    loaded = true,
-    path = "/Users/vusal.alishov/.local/share/nvim/site/pack/packer/start/harpoon",
-    url = "https://github.com/ThePrimeagen/harpoon"
-  },
   ["lsp-zero"] = {
     loaded = true,
     path = "/Users/vusal.alishov/.local/share/nvim/site/pack/packer/start/lsp-zero",
