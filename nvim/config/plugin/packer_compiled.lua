@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/Users/vusal.alishov/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/Users/vusal.alishov/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/Users/vusal.alishov/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/Users/vusal.alishov/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/Users/vusal.alishov/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
+local package_path_str = "/Users/vusal.alishov/.cache/nvim/packer_hererocks/2.1.1692716794/share/lua/5.1/?.lua;/Users/vusal.alishov/.cache/nvim/packer_hererocks/2.1.1692716794/share/lua/5.1/?/init.lua;/Users/vusal.alishov/.cache/nvim/packer_hererocks/2.1.1692716794/lib/luarocks/rocks-5.1/?.lua;/Users/vusal.alishov/.cache/nvim/packer_hererocks/2.1.1692716794/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/Users/vusal.alishov/.cache/nvim/packer_hererocks/2.1.1692716794/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -74,11 +74,6 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  LuaSnip = {
-    loaded = true,
-    path = "/Users/vusal.alishov/.local/share/nvim/site/pack/packer/start/LuaSnip",
-    url = "https://github.com/L3MON4D3/LuaSnip"
-  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/Users/vusal.alishov/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -105,21 +100,6 @@ _G.packer_plugins = {
     path = "/Users/vusal.alishov/.local/share/nvim/site/pack/packer/start/lsp-zero",
     url = "https://github.com/VonHeikemen/lsp-zero.nvim"
   },
-  ["mason-lspconfig.nvim"] = {
-    loaded = true,
-    path = "/Users/vusal.alishov/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
-    url = "https://github.com/williamboman/mason-lspconfig.nvim"
-  },
-  ["mason.nvim"] = {
-    loaded = true,
-    path = "/Users/vusal.alishov/.local/share/nvim/site/pack/packer/start/mason.nvim",
-    url = "https://github.com/williamboman/mason.nvim"
-  },
-  ["nui.nvim"] = {
-    loaded = true,
-    path = "/Users/vusal.alishov/.local/share/nvim/site/pack/packer/start/nui.nvim",
-    url = "https://github.com/MunifTanjim/nui.nvim"
-  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/Users/vusal.alishov/.local/share/nvim/site/pack/packer/start/nvim-cmp",
@@ -140,11 +120,6 @@ _G.packer_plugins = {
     path = "/Users/vusal.alishov/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
-  playground = {
-    loaded = true,
-    path = "/Users/vusal.alishov/.local/share/nvim/site/pack/packer/start/playground",
-    url = "https://github.com/nvim-treesitter/playground"
-  },
   ["plenary.nvim"] = {
     loaded = true,
     path = "/Users/vusal.alishov/.local/share/nvim/site/pack/packer/start/plenary.nvim",
@@ -159,10 +134,25 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/vusal.alishov/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
+  },
+  ["vim-helm"] = {
+    loaded = true,
+    path = "/Users/vusal.alishov/.local/share/nvim/site/pack/packer/start/vim-helm",
+    url = "https://github.com/towolf/vim-helm"
+  },
+  ["which-key.nvim"] = {
+    config = { "\27LJ\2\nt\0\0\3\0\a\0\0156\0\0\0009\0\1\0+\1\2\0=\1\2\0006\0\0\0009\0\1\0)\1,\1=\1\3\0006\0\4\0'\2\5\0B\0\2\0029\0\6\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\15timeoutlen\ftimeout\6o\bvim\0" },
+    loaded = true,
+    path = "/Users/vusal.alishov/.local/share/nvim/site/pack/packer/start/which-key.nvim",
+    url = "https://github.com/folke/which-key.nvim"
   }
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: which-key.nvim
+time([[Config for which-key.nvim]], true)
+try_loadstring("\27LJ\2\nt\0\0\3\0\a\0\0156\0\0\0009\0\1\0+\1\2\0=\1\2\0006\0\0\0009\0\1\0)\1,\1=\1\3\0006\0\4\0'\2\5\0B\0\2\0029\0\6\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\15timeoutlen\ftimeout\6o\bvim\0", "config", "which-key.nvim")
+time([[Config for which-key.nvim]], false)
 -- Config for: everforest
 time([[Config for everforest]], true)
 try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\27colorscheme everforest\bcmd\bvim\0", "config", "everforest")

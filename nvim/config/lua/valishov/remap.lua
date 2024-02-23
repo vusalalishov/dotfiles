@@ -1,12 +1,19 @@
 vim.g.mapleader = " "
 
-Remap("n", "<C-x>", vim.cmd.Ex, {}, "Open netrw")
-Remap("n", "<C-j>", "10j", {}, "10 lines down")
-Remap("n", "<C-k>", "10k", {}, "10 lines up")
+vim.keymap.set("n", "<C-x>", vim.cmd.Ex, { desc = "Open netrw" })
+vim.keymap.set({"n","v"}, "<C-j>", "10j", { desc = "10 lines down" })
+vim.keymap.set({"n","v"}, "<C-k>", "10k", { desc = "10 lines up" })
 
-Remap("x", "<leader>P", "\"_dp", {}, "Paste after cursor by preserving the contents of the registry")
+vim.keymap.set("x", "<leader>P", "\"_dp", { desc = "Paste after cursor by preserving the contents of the registry" })
 
-Remap("n", "<leader>p", "\"*p", {}, "Paste from system clipboard")
-Remap("v", "<leader>y", "\"*y", {}, "Yank to system clipboard")
+vim.keymap.set("n", "<leader>p", "\"*p", { desc = "Paste from system clipboard" })
+vim.keymap.set("v", "<leader>y", "\"*y", { desc = "Yank to system clipboard"})
 
-Remap("n", "<leader>w", vim.cmd.bd, {}, "Close current buffer")
+vim.keymap.set("n", "<leader>w", vim.cmd.bd, { desc = "Close current buffer"})
+
+vim.keymap.set("n", "ss", vim.cmd.wa, { desc = "Save changes!"})
+
+pcall(vim.keymap.del, "v", "<C-m>")
+vim.keymap.set("v", "<C-m>", function()
+    return ":'<,'>norm! @" .. vim.fn.input("Enter registry id: ") .. "<cr>"
+end, { desc = "Apply a macro to selections", expr = true })

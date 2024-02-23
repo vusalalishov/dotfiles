@@ -1,1 +1,1 @@
-Remap("n", "<leader>gs", function() vim.cmd(":below Git") end, {}, "Open Git Fugitive")
+vim.keymap.set("n", "<leader>gs", function() vim.cmd(":below Git") end, { desc = "Open Git Fugitive" })

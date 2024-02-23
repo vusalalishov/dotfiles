@@ -6,16 +6,16 @@ lsp_zero.on_attach(function(_, bufnr)
     -- TODO: the remaps are not set on startup but on buffer attach event - that's why the
     -- help wouldn't contain them unless a buffer with LSP support opened
 
-	Remap("n", "gd", function() vim.lsp.buf.definition() end, opts, "Go to implementation")
-	Remap("n", "gr", function() vim.lsp.buf.references() end, opts, "Go to implementation")
-	Remap("n", "gi", function() vim.lsp.buf.implementation() end, opts, "Go to implementation")
-	Remap("n", "K", function() vim.lsp.buf.hover() end, opts, "Show docs - hover")
-	Remap("n", "[d", function() vim.diagnostic.goto_next() end, opts, "Next diagnostic")
-	Remap("n", "]d", function() vim.diagnostic.goto_prev() end, opts, "Prev diagnostic")
-	Remap("n", "<C-a>", function() vim.lsp.buf.code_action() end, opts, "Code actions")
-	Remap("n", "<leader>r", function() vim.lsp.buf.rename() end, opts, "Rename")
-	Remap("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts, "Signature help")
-	Remap("n", "<C-f>", function() vim.lsp.buf.format({async = true}) end, opts, "Format")
+	vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, { desc = "Go to implementation" })
+	vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, { desc = "Go to implementation" })
+	vim.keymap.set("n", "gi", function() vim.lsp.buf.implementation() end, { desc = "Go to implementation" })
+	vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, { desc = "Show docs - hover" })
+	vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, { desc = "Next diagnostic" })
+	vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, { desc = "Prev diagnostic" })
+	vim.keymap.set("n", "<C-a>", function() vim.lsp.buf.code_action() end, { desc = "Code actions" })
+	vim.keymap.set("n", "<leader>r", function() vim.lsp.buf.rename() end, { desc = "Rename" })
+	vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, { desc = "Signature help" })
+	vim.keymap.set("n", "<C-f>", function() vim.lsp.buf.format({async = true}) end, { desc = "Format" })
 end)
 
 -- TODO: format on save
@@ -53,17 +53,17 @@ lsp_config.pyright.setup({
 
 lsp_config.tsserver.setup({})
 
-require('mason').setup({})
-require('mason-lspconfig').setup({
-	ensure_installed = {'tsserver'},
-	handlers = {
-		lsp_zero.default_setup,
-		lua_ls = function()
-			local lua_opts = lsp_zero.nvim_lua_ls()
-			require('lspconfig').lua_ls.setup(lua_opts)
-		end,
-	}
-})
+lsp_config.helm_ls.setup {
+  settings = {
+    ['helm-ls'] = {
+      yamlls = {
+        path = "yaml-language-server",
+      }
+    }
+  }
+}
+
+lsp_config.yamlls.setup {}
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
@@ -80,7 +80,8 @@ cmp.setup({
 	mapping = cmp.mapping.preset.insert({
 		['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
 		['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-		['<C-y>'] = cmp.mapping.confirm({ select = true }),
+		['<C-Enter>'] = cmp.mapping.confirm({ select = true }),
+		['<Enter>'] = cmp.mapping.confirm({ select = true }),
 		['<C-Space>'] = cmp.mapping.complete(),
 	}),
 })
