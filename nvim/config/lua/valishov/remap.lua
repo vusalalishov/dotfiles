@@ -17,3 +17,6 @@ pcall(vim.keymap.del, "v", "<C-m>")
 vim.keymap.set("v", "<C-m>", function()
     return ":'<,'>norm! @" .. vim.fn.input("Enter registry id: ") .. "<cr>"
 end, { desc = "Apply a macro to selections", expr = true })
+
+vim.keymap.set("n", "<leader>da", vim.cmd.difft, {})
+vim.keymap.set("n", "<leader>dc", vim.cmd.diffoff, {})
