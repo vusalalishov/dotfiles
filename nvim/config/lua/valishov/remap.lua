@@ -9,7 +9,16 @@ vim.keymap.set("x", "<leader>P", "\"_dp", { desc = "Paste after cursor by preser
 vim.keymap.set("n", "<leader>p", "\"*p", { desc = "Paste from system clipboard" })
 vim.keymap.set("v", "<leader>y", "\"*y", { desc = "Yank to system clipboard"})
 
-vim.keymap.set("n", "<leader>w", vim.cmd.bd, { desc = "Close current buffer"})
+vim.keymap.set("n", "<leader>q", vim.cmd.bd, { desc = "Close current buffer"})
+
+vim.keymap.set("n", "<leader>wn", function()
+    vim.cmd(":tabnew " .. vim.fn.input("Enter tab name: "))
+end, { desc = "Open new tab page" })
+vim.keymap.set("n", "<leader>wh", vim.cmd.tabprev, { desc = "Go to the prev tab" })
+vim.keymap.set("n", "<leader>wl", vim.cmd.tabnext, { desc = "Go to the next tab" })
+vim.keymap.set("n", "<leader>wc", vim.cmd.tabclose, { desc = "Close the tab" })
+vim.keymap.set("n", "<leader>wL", function() vim.cmd(":+tabmove") end, { desc = "Close the tab" })
+vim.keymap.set("n", "<leader>wH", function() vim.cmd(":-tabmove") end, { desc = "Close the tab" })
 
 vim.keymap.set("n", "ss", vim.cmd.wa, { desc = "Save changes!"})
 

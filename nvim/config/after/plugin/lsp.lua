@@ -57,13 +57,13 @@ lsp_config.helm_ls.setup {
   settings = {
     ['helm-ls'] = {
       yamlls = {
+        enabled = false,
+        diagnosticsLimit = 0,
         path = "yaml-language-server",
       }
     }
   }
 }
-
-lsp_config.yamlls.setup {}
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
@@ -79,6 +79,7 @@ cmp.setup({
 	formatting = lsp_zero.cmp_format(),
 	mapping = cmp.mapping.preset.insert({
 		['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+		['<Tab>'] = cmp.mapping.select_prev_item(cmp_select),
 		['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
 		['<C-Enter>'] = cmp.mapping.confirm({ select = true }),
 		['<Enter>'] = cmp.mapping.confirm({ select = true }),
