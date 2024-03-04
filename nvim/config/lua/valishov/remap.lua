@@ -20,6 +20,9 @@ vim.keymap.set("n", "<leader>wc", vim.cmd.tabclose, { desc = "Close the tab" })
 vim.keymap.set("n", "<leader>wL", function() vim.cmd(":+tabmove") end, { desc = "Close the tab" })
 vim.keymap.set("n", "<leader>wH", function() vim.cmd(":-tabmove") end, { desc = "Close the tab" })
 
+vim.keymap.set("n", "<leader>sv", vim.cmd.vsplit, { desc = "Split vertically" })
+vim.keymap.set("n", "<leader>sh", vim.cmd.split, { desc = "Split vertically" })
+
 vim.keymap.set("n", "ss", vim.cmd.wa, { desc = "Save changes!"})
 
 pcall(vim.keymap.del, "v", "<C-m>")

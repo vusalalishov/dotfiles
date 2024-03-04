@@ -110,8 +110,9 @@ function dlink() {
   fi
 }
 
-function mr() {
-  
+function uuid() {
+    hash="$(openssl rand -hex 16 | openssl md5 -hex -md5)"
+    echo "${hash:1:8}-${hash:9:4}-${hash:13:4}-${hash:17:4}-${hash:21:12}"
 }
 
 function for-each() {
@@ -119,7 +120,6 @@ function for-each() {
   items=$(pbpaste)
   for num (${(f)items}) echo $num
 }
-
 
 
 
