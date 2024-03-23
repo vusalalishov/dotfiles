@@ -10,10 +10,10 @@ lsp_zero.on_attach(function(_, bufnr)
 	vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, { desc = "Go to implementation" })
 	vim.keymap.set("n", "gi", function() vim.lsp.buf.implementation() end, { desc = "Go to implementation" })
 	vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, { desc = "Show docs - hover" })
-	vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, { desc = "Next diagnostic" })
-	vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, { desc = "Prev diagnostic" })
+	vim.keymap.set("n", "]d", function() vim.diagnostic.goto_next() end, { desc = "Next diagnostic" })
+	vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev() end, { desc = "Prev diagnostic" })
 	vim.keymap.set("n", "<C-a>", function() vim.lsp.buf.code_action() end, { desc = "Code actions" })
-	vim.keymap.set("n", "<leader>r", function() vim.lsp.buf.rename() end, { desc = "Rename" })
+	vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, { desc = "Rename" })
 	vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, { desc = "Signature help" })
 	vim.keymap.set("n", "<C-f>", function() vim.lsp.buf.format({async = true}) end, { desc = "Format" })
 end)
@@ -24,32 +24,36 @@ local lsp_config = require("lspconfig")
 
 lsp_config.gopls.setup({})
 
-lsp_config.pylsp.setup{
-  settings = {
-    pylsp = {
-      plugins = {
-        pycodestyle = {
-          ignore = {'W391'},
-          maxLineLength = 100
-        },
-        pylint = {
-            enabled = false
-        }
-      }
-    }
-  }
-}
-
 lsp_config.pyright.setup({
     settings = {
+        pyright = {
+            disableOrganizeImports = true,
+        },
         python = {
             analysis = {
-                typeCheckingMode = "off"
+                ignore = { "*" },
+                typeCheckingMode = "off",
             },
-            exclude = {"/build/**"}
         },
+        exclude = {"/build/**"},
     }
 })
+
+local ruff_on_attach = function(client, bufnr)
+  if client.name == 'ruff_lsp' then
+    client.server_capabilities.hoverProvider = false
+  end
+end
+
+lsp_config.ruff_lsp.setup {
+    on_attach = on_attach,
+    init_options = {
+        settings = {
+            -- Any extra CLI arguments for `ruff` go here.
+            args = {},
+        }
+    }
+}
 
 lsp_config.tsserver.setup({})
 
@@ -64,6 +68,8 @@ lsp_config.helm_ls.setup {
     }
   }
 }
+
+lsp_config.jdtls.setup({})
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
