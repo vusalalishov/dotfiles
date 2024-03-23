@@ -69,8 +69,6 @@ lsp_config.helm_ls.setup {
   }
 }
 
-lsp_config.jdtls.setup({})
-
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
 

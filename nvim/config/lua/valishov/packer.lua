@@ -20,6 +20,7 @@ return require("packer").startup(function(use)
 	use("tpope/vim-fugitive")
 
     use("L3MON4D3/LuaSnip")
+    use("mfussenegger/nvim-jdtls")
 
 	use {
 		"VonHeikemen/lsp-zero.nvim", branch = "v3.x",
