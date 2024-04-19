@@ -23,8 +23,6 @@ vim.keymap.set("n", "<leader>wH", function() vim.cmd(":-tabmove") end, { desc = 
 vim.keymap.set("n", "<leader>sv", vim.cmd.vsplit, { desc = "Split vertically" })
 vim.keymap.set("n", "<leader>sh", vim.cmd.split, { desc = "Split vertically" })
 
-vim.keymap.set("n", "ss", vim.cmd.wa, { desc = "Save changes!"})
-
 pcall(vim.keymap.del, "v", "<C-m>")
 vim.keymap.set("v", "<C-m>", function()
     return ":'<,'>norm! @" .. vim.fn.input("Enter registry id: ") .. "<cr>"

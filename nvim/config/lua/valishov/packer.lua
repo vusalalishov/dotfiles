@@ -19,25 +19,27 @@ return require("packer").startup(function(use)
 	use("nvim-treesitter/nvim-treesitter", {run = ":TSUpdate"})
 	use("tpope/vim-fugitive")
 
-    use("L3MON4D3/LuaSnip")
     use("mfussenegger/nvim-jdtls")
 
-	use {
-		"VonHeikemen/lsp-zero.nvim", branch = "v3.x",
-		as = "lsp-zero",
-		requires = {
-			-- LSP Support
-			{"neovim/nvim-lspconfig"},
+    use {
+        "numToStr/Comment.nvim",
+        config = function()
+            require("Comment").setup()
+        end
+    }
 
-			-- Autocompletion
-			{"hrsh7th/nvim-cmp"},
-			{"hrsh7th/cmp-buffer"},
-			{"hrsh7th/cmp-path"},
-			{"hrsh7th/cmp-nvim-lsp"},
+    use("neovim/nvim-lspconfig")
+
+    use({
+        "hrsh7th/nvim-cmp",
+        as = "cmp",
+        requires = {
+            {"hrsh7th/cmp-buffer"},
+            {"hrsh7th/cmp-path"},
+            {"hrsh7th/cmp-nvim-lsp"},
+            {"hrsh7th/nvim_lsp_signature_help"},
+            {"L3MON4D3/LuaSnip"},
             {"saadparwaiz1/cmp_luasnip"},
-		}
-	}
-
-    use("towolf/vim-helm")
-
+        },
+    })
 end)

@@ -1,0 +1,19 @@
+let mapleader = " "
+
+set NERDTree
+
+nnoremap <C-j> 10j
+nnoremap <C-k> 10k
+
+nmap ff <action>(GotoFile)
+nmap ss <action>(SaveAll)
+nmap <C-s> <action>(GotoSymbol)
+nmap <C-g> <action>(SearchEverywhere)
+nmap <C-f> <action>(ReformatCode)
+nmap <leader>r <action>(RenameElement)
+nmap <C-u> <action>(RunMenu)
+
+nmap <leader>ff :NERDTreeFind<CR>
+
+nmap <leader>p "*p
+vmap <leader>y "*y

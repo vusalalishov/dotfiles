@@ -87,7 +87,7 @@ function gcm() {
     echo -n "$prefix "
     read message
     local command
-    command='git commit --signoff -m "'$prefix' '$message'"'
+    command='git commit -m "'$prefix' '$message'"'
     print -s $command
     eval $command
   else
