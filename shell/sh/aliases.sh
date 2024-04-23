@@ -28,7 +28,7 @@ alias grep="grep -i"
 alias gp='cd $(find  ~/projects -maxdepth 2 -type d | fzf)'
 alias gl='git log --graph --oneline --decorate --all'
 alias gb='git branch --list -a | sed "s/*\s//gi" | fzf'
-alias gtl='git tag --sort=v:refname'
+alias gtl='git tag --list -n1 --sort=-v:refname | fzf'
 alias gco='git checkout $(git branch -l | fzf)'
 alias g='git'
 alias gcb='g checkout -b'

@@ -5,30 +5,33 @@ local lspconfig = require("lspconfig")
 local telescope = require("telescope.builtin")
 local util = require 'lspconfig.util'
 
--- lspconfig.pylsp.setup({
---     workspace_folders = {"figo", "tests"},
---     init_options = {
---         workspace = {
---             symbols = {
---                 ignoreFolders = {".venv", "build", "pkg-data", "local"},
---                 maxSymbols = 20,
---             }
---         },
---     },
---     settings = {
---         pylsp = {
---             plugins = {
---                 rope_autoimport = {
---                     enabled = true,
---                 },
---             },
---         },
---     },
--- })
 
 lspconfig.pyright.setup({})
 
 lspconfig.typos_lsp.setup({})
+
+lspconfig.gopls.setup({})
+
+lspconfig.rust_analyzer.setup({
+    settings = {
+        ["rust-analyzer"] = {
+            imports = {
+                granularity = {
+                    group = "module",
+                },
+                prefix = "self",
+            },
+            cargo = {
+                buildScripts = {
+                    enable = true,
+                },
+            },
+            procMacro = {
+                enable = true
+            },
+        }
+    }
+})
 
 lspconfig.helm_ls.setup({
     filetypes = {"helm"},
@@ -72,22 +75,23 @@ local Format = {
         local exit_code = os.execute("black " .. filename .. " &> /dev/null")
         exit_code = exit_code + os.execute("ruff --fix " .. filename .. " &> /dev/null")
         if exit_code == 0 then
-            vim.api.nvim_command("e")
+            vim.api.nvim_command("e!")
+            return true
         else
-            print("Failed to format, exit_code" .. exit_code)
+            print("Failed to format, exit_code: " .. exit_code)
+            return false
         end
     end,
 }
 
 function format()
-    vim.api.nvim_command("w")
-    Format[vim.bo.filetype]()
-    vim.api.nvim_command("w")
-    print("Formatted!")
+    if (Format[vim.bo.filetype]()) then
+        print("Formatted!")
+    end
 end
 
 
-vim.keymap.set("n", "ss", format, { desc = "Save changes!"})
+vim.keymap.set("n", "ss", function() vim.api.nvim_command("w") end, { desc = "Save changes!"})
 
 vim.keymap.set("n", "<C-f>", format, {})
 vim.keymap.set("i", "<C-f>", format, {})
