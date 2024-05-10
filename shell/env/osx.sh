@@ -4,6 +4,7 @@ export LANG=en_US.UTF-8
 export GPG_TTY=$(tty)
 export PATH="$PATH:/opt/homebrew/bin"
 
+export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/tools/"
 export PATH="$HOME/.asdf/shims:$PATH"
 export PATH="/usr/local/go/bin:$PATH"
