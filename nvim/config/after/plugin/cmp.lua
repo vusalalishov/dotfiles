@@ -6,7 +6,15 @@ local telescope = require("telescope.builtin")
 local util = require 'lspconfig.util'
 
 
-lspconfig.pyright.setup({})
+lspconfig.pyright.setup({
+    settings = {
+        python = {
+            analysis = {
+                ignore = { '*' },
+            },
+        },
+    },
+})
 
 lspconfig.typos_lsp.setup({})
 
