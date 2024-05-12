@@ -21,7 +21,7 @@ vim.keymap.set("n", "<leader>wL", function() vim.cmd(":+tabmove") end, { desc = 
 vim.keymap.set("n", "<leader>wH", function() vim.cmd(":-tabmove") end, { desc = "Close the tab" })
 
 vim.keymap.set("n", "<leader>sv", vim.cmd.vsplit, { desc = "Split vertically" })
-vim.keymap.set("n", "<leader>sh", vim.cmd.split, { desc = "Split vertically" })
+vim.keymap.set("n", "<leader>sh", vim.cmd.split, { desc = "Split horizontally" })
 
 pcall(vim.keymap.del, "v", "<C-m>")
 vim.keymap.set("v", "<C-m>", function()
@@ -30,3 +30,5 @@ end, { desc = "Apply a macro to selections", expr = true })
 
 vim.keymap.set("n", "<leader>da", vim.cmd.difft, {})
 vim.keymap.set("n", "<leader>dc", vim.cmd.diffoff, {})
+
+vim.keymap.set("n", "ss", function() vim.api.nvim_command("wa") end, { desc = "Save changes!"})

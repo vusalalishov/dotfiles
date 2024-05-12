@@ -41,3 +41,6 @@ vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
     command = "set filetype=yaml",
     group = argo_group
 })
+
+
+vim.diagnostic.config({ virtual_text = false })
