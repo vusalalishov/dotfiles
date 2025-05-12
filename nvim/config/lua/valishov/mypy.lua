@@ -1,56 +1,91 @@
-local autocmd = vim.api.nvim_create_autocmd
-local mypy_namespace = vim.api.nvim_create_namespace('mypy')
+-- local autocmd = vim.api.nvim_create_autocmd
+-- local mypy_namespace = vim.api.nvim_create_namespace('mypy')
 
-
-function os.capture(cmd)
-  local f = assert(io.popen(cmd, 'r'))
-  local s = assert(f:read('*a'))
-  f:close()
-  return s
+sum = function(a,b)
+    return a + b
 end
 
-if not table.unpack then
-    table.unpack = unpack
-end
-
-local mypy_augroup = vim.api.nvim_create_augroup("mypy_format", {})
-
-local au_callback = function(ev)
-    curr_file = vim.api.nvim_buf_get_name(0)
-    if string.sub(curr_file, #curr_file - 2, #curr_file) ~= ".py" then
-        return
-    end
-    vim.schedule(function() 
-        local lint_output = os.capture("mypy --no-pretty --no-color-output " .. curr_file)
-        local diagnostics = {}
-        for line in string.gmatch(lint_output, "[^\r\n]+") do
-            words = {}
-            for word in string.gmatch(line, "[^%s]+") do
-                table.insert(words, word)
-            end
-            location = words[1]
-            line = string.gmatch(location, ".py:([0-9]+):")()
-            col = string.gmatch(location, ".py:[0-9]+:([0-9]+):")()
-            if line ~= nil and #line > 0 then
-                table.insert(diagnostics, {
-                    bufnr = 0,
-                    lnum = tonumber(line) - 1,
-                    end_lnum = tonumber(line) - 1,
-                    col = tonumber(col) - 1,
-                    end_col = 300,
-                    severity = vim.diagnostic.severity.WARN,
-                    message = table.concat({table.unpack(words, 3, #words - 1)}, " ") .. " - " .. words[#words],
-                    source = 'mypy',
-                    sign = 'T'
-                })
-            end
-        end
-
-        vim.diagnostic.set(mypy_namespace, 0, diagnostics)
-    end)
-end
-
-autocmd({"BufWritePost", "BufWinEnter"}, {
-    group = mypy_augroup,
-    callback = au_callback,
-})
+-- if not table.unpack then
+--     table.unpack = unpack
+-- end
+--
+-- local mypy_augroup = vim.api.nvim_create_augroup("mypy_format", {})
+--
+-- local au_callback = function(ev)
+--     -- print(vim.inspect(ev))
+-- -- {                                                                                                                                                                                                                                                                                                                                                                            
+-- --   buf = 144,                                                                                                                                                                                                                                                                                                                                                                 
+-- --   event = "BufWinEnter",                                                                                                                                                                                                                                                                                                                                                     
+-- --   file = "/Users/vusal.alishov/projects/python/figo-api/figo/api/schemas.py",                                                                                                                                                                                                                                                                                                
+-- --   group = 7,                                                                                                                                                                                                                                                                                                                                                                 
+-- --   id = 112,                                                                                                                                                                                                                                                                                                                                                                  
+-- --   match = "/Users/vusal.alishov/projects/python/figo-api/figo/api/schemas.py"                                                                                                                                                                                                                                                                                                
+-- -- } 
+--     if vim == nil then
+--         print("vim is nil")
+--         return
+--     end
+--     local buffer_num = ev.buf
+--     local curr_file = ev.file
+--     local filetype = vim.filetype.match({filename = curr_file})
+--     if filetype == nil or filetype ~= "python" then
+--         if filetype ~= nil then
+--             print("Not python file: " .. filetype)
+--         else
+--             print("Not python file: nil")
+--         end
+--         return
+--     end
+--     -- TODO: check if the buffer belongs to the project if it's in project root
+--     -- TODO: Error executing lua callback: ...shov/projects/dotfiles/nvim/config/lua/valishov/mypy.lua:28: attempt to call field 'system' (a nil value)
+--     print("Run the command")
+--     vim.system({
+--         "mypy", "--no-pretty", "--no-color-output", curr_file, "2>/dev/null"
+--     }, {text = true}, function(obj) 
+--         if obj.code ~= 0 then
+--             print("mypy failed")
+--             vim.notify("Failed to run mypy, exit_code: " .. obj.code)
+--             return
+--         end
+--         local lint_output = obj.std_out
+--         local diagnostics = {}
+--         for line in string.gmatch(lint_output, "[^\r\n]+") do
+--             words = {}
+--             for word in string.gmatch(line, "[^%s]+") do
+--                 table.insert(words, word)
+--             end
+--             location = words[1]
+--             line = string.gmatch(location, ".py:([0-9]+):")()
+--             col = string.gmatch(location, ".py:[0-9]+:([0-9]+):")()
+--             if line ~= nil and #line > 0 then
+--                 table.insert(diagnostics, {
+--                     bufnr = 0,
+--                     lnum = tonumber(line) - 1,
+--                     end_lnum = tonumber(line) - 1,
+--                     -- Error executing vim.schedule lua callback: /Users/vusal.alishov/.config/nvim/lua/valishov/mypy.lua:41: attempt to perform arithmetic on a nil value
+--                     -- tests/utils/task.py:19: error: The return type of a generator function should be "Generator" or one of its supertypes  [misc]
+--                     col = tonumber(col) - 1,
+--                     end_col = 300,
+--                     severity = vim.diagnostic.severity.WARN,
+--                     message = table.concat({table.unpack(words, 3, #words - 1)}, " ") .. " - " .. words[#words],
+--                     source = 'mypy',
+--                     sign = 'T'
+--                 })
+--             end
+--         end
+--
+--         print("schedule it")
+--         vim.schedule(function()
+--             vim.diagnostic.set(mypy_namespace, buffer_num, diagnostics)
+--         end)
+--     end)
+--     -- vim.schedule(function() 
+--     --     -- TODO: this seems to slow the neovim down - check why!
+--     --     -- TODO: what if mypy is not installed? Check if it's present first
+--     -- end)
+-- end
+--
+-- -- autocmd({"BufWritePost", "BufWinEnter"}, {
+-- --     group = mypy_augroup,
+-- --     callback = au_callback,
+-- -- })

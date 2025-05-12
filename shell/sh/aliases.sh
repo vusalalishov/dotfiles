@@ -18,6 +18,8 @@ if _has kubectl; then
   alias kgc='kubectl config get-contexts'
   alias kuc='kubectl config use-context $(kubectl config get-contexts -o name | fzf)'
   alias kcc='kubectl config current-context'
+  alias ks='k9s --readonly'
+  alias ks-admin='k9s'
 fi
 
 alias l='ls -latGhFiT'
@@ -25,7 +27,7 @@ alias l='ls -latGhFiT'
 alias dockviz="docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz"
 alias grep="grep -i"
 
-alias gp='cd $(find  ~/projects -maxdepth 2 -type d | fzf)'
+alias gp='cd $(find  ~/projects -maxdepth 3 -type d | fzf)'
 alias gl='git log --graph --oneline --decorate --all'
 alias gb='git branch --list -a | sed "s/*\s//gi" | fzf'
 alias gtl='git tag --list -n1 --sort=-v:refname | fzf'
@@ -48,3 +50,8 @@ alias n='lima nerdctl'
 alias mp='multipass'
 alias db='devbox'
 alias vim='nvim'
+
+alias http-server='python -m http.server'
+
+alias e='hx'
+alias r='vim -R'

@@ -4,8 +4,13 @@
 local Format = {
     python = function()
         local filename = vim.api.nvim_buf_get_name(0)
-        os.execute("black " .. filename .. " &> /dev/null")
-        os.execute("ruff --fix " .. filename .. " &> /dev/null")
+        os.execute("hatch fmt " .. filename .. " &> /dev/null")
+        vim.api.nvim_command("e!")
+        return true
+    end,
+    go = function()
+        local filename = vim.api.nvim_buf_get_name(0)
+        os.execute("go fmt " .. filename .. " &> /dev/null")
         vim.api.nvim_command("e!")
         return true
     end,

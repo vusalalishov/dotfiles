@@ -1,3 +1,4 @@
+local home = os.getenv('HOME')
 local base_path = "/Users/vusal.alishov/projects/java/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository"
 
 function find_file(name)
@@ -6,6 +7,11 @@ function find_file(name)
     file = result:gsub("\n", "")
     return file
 end
+
+-- If you started neovim within `~/dev/xy/project-1` this would resolve to `project-1`
+local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
+local workspace_dir = home .. '/projects/java/' .. project_name
+print(workspace_dir)
 
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
@@ -32,7 +38,7 @@ local config = {
     '-configuration', base_path .. "/config_mac",
 
     -- See `data directory configuration` section in the README
-    '-data', '.jdtls_data'
+    '-data', workspace_dir
   },
 
   -- This is the default if not provided, you can remove it. Or adjust as needed.

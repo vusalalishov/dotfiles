@@ -4,7 +4,7 @@ return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
 
 	use {
-		"nvim-telescope/telescope.nvim", tag = "0.1.5",
+		"nvim-telescope/telescope.nvim", tag = "0.1.8",
 		requires = { {"nvim-lua/plenary.nvim"} }
 	}
 
@@ -42,4 +42,6 @@ return require("packer").startup(function(use)
             {"saadparwaiz1/cmp_luasnip"},
         },
     })
+
+
 end)

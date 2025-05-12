@@ -43,4 +43,11 @@ vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
 })
 
 
-vim.diagnostic.config({ virtual_text = false })
+vim.diagnostic.config({ 
+    virtual_text = false, 
+    underline = true 
+})
+
+vim.cmd("let g:netrw_altv=1")
+vim.cmd("let g:netrw_preview=1")
+vim.cmd("let g:netrw_keepdir=0")

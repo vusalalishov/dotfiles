@@ -5,7 +5,7 @@ comment-token = "#"
 indent = { tab-width = 4, unit = "    " }
 formatter = { command = "black", args=["--quiet", "-"] }
 auto-format = true
-language-servers = ["jedi-language-server"]
+language-servers = ["pyright"]
 
 [language-server.gopls]
 command = "gopls"

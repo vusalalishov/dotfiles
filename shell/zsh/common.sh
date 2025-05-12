@@ -1,6 +1,6 @@
 set -o vi
 set -o HIST_IGNORE_DUPS
-. /opt/homebrew/Cellar/asdf/0.11.3/libexec/asdf.sh
+. /opt/homebrew/Cellar/asdf/0.14.1/libexec/asdf.sh
 
 # fd - cd to selected directory
 fd() {
@@ -80,7 +80,7 @@ can-i-oncall() {
 
 function gcm() {
   git_branch=$(git branch --show-current)
-  if [[ $git_branch =~ '(feat|fix)/(OPEN)-([0-9]*).*' ]] then
+  if [[ $git_branch =~ '(feat|fix)/(MIS|NAPI)-([0-9]*).*' ]] then
     local message
     local prefix
     prefix="$match[1][$match[2]-$match[3]] -"

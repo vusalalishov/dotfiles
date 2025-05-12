@@ -7,14 +7,18 @@ local util = require 'lspconfig.util'
 
 
 lspconfig.pyright.setup({
-    settings = {
-        python = {
-            analysis = {
-                ignore = { '*' },
-            },
-        },
-    },
+    -- settings = {
+    --     python = {
+    --         analysis = {
+    --             ignore = { '*' },
+    --         },
+    --     },
+    -- },
 })
+
+-- lspconfig.pylsp.setup({
+--     cmd = vim.lsp.rpc.connect("127.0.0.1", 8282),
+-- })
 
 lspconfig.typos_lsp.setup({})
 
@@ -55,6 +59,10 @@ lspconfig.helm_ls.setup({
 
 lspconfig.yamlls.setup({})
 
+lspconfig.lua_ls.setup({})
+
+lspconfig.ts_ls.setup({})
+
 cmp.setup({
     snippet = {
       expand = function(args)
@@ -77,6 +85,11 @@ cmp.setup({
     }),
 })
 
+function split_definition ()
+    vim.cmd('vsplit')
+    vim.cmd('Telescope lsp_definitions')
+end
+
 autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('UserLspConfig', {}),
     callback = function(ev)
@@ -84,6 +97,7 @@ autocmd('LspAttach', {
 
         vim.keymap.set('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
         vim.keymap.set('n', 'gd', '<Cmd>Telescope lsp_definitions<CR>', opts)
+        -- vim.keymap.set('n', 'Gd', split_definition, opts)
         vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
         vim.keymap.set('n', 'gi', '<Cmd>Telescope lsp_implementations<CR>', opts)
         vim.keymap.set('n', '<Leader>k', '<Cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
