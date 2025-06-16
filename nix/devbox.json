@@ -1,0 +1,48 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.14.2/.schema/devbox.schema.json",
+  "packages": [
+    "nodejs@22",
+    "k9s@0.50",
+    "helix@24",
+    "go@1.24",
+    "gopls@0.16",
+    "teleport@17",
+    "kubernetes-helm@3",
+    "ag@2",
+    "docker-compose@2",
+    "pre-commit@4",
+    "git@2",
+    "opentofu@1.8",
+    "google-cloud-sdk@494",
+    "terraform@1",
+    "pkg-config@0.29",
+    "openssl",
+    "openssl.dev",
+    "gnumake",
+    "openssh",
+    "cmake",
+    "ghostscript",
+    "fzf@0.56",
+    "delta",
+    "sqlite",
+    "stern",
+    "rustup",
+    "neovim",
+    "ripgrep",
+    "luajitPackages.luarocks_bootstrap",
+    "lua51Packages.lua",
+    "typos",
+    "typos-lsp"
+  ],
+  "shell": {
+    "init_hook": [
+      "export PKG_CONFIG_PATH=$(realpath $XDG_DATA_HOME/devbox/global/current/openssl-dev)/lib/pkgconfig",
+      "export CFLAGS=$(pkg-config --cflags openssl)",
+      "export LDFLAGS=$(pkg-config --libs openssl)"
+    ],
+    "scripts": {
+      "test": ["echo \"Error: no test specified\" && exit 1"]
+    }
+  },
+  "env": {}
+}

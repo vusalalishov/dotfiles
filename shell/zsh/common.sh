@@ -1,6 +1,5 @@
 set -o vi
 set -o HIST_IGNORE_DUPS
-. /opt/homebrew/Cellar/asdf/0.14.1/libexec/asdf.sh
 
 # fd - cd to selected directory
 fd() {
@@ -19,7 +18,7 @@ fh() {
 }
 
 grr() {
-  local remote_branch 
+  local remote_branch
   remote_branch=$(git branch -r | fzf)
   if [[ -n "${remote_branch// }" ]]
   then
@@ -87,7 +86,7 @@ function gcm() {
     echo -n "$prefix "
     read message
     local command
-    command='git commit -m "'$prefix' '$message'"'
+    command='git commit -S -m "'$prefix' '$message'"'
     print -s $command
     eval $command
   else

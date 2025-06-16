@@ -1,0 +1,8 @@
+1. Sendkeystrokes with numeric mapping containing a number larger than 10 doesn't work
+	"10 j" - doesn't work
+	"9 j" - works
+2. In the debug keystrokes window - the line-wrapping doesn't work - due to this in small windows
+	we can't see the line endings
+3. How to reveal the file in the project panel?
+4. How to close the project panel window?
+5. Add some tasks to the editor: https://zed.dev/docs/tasks

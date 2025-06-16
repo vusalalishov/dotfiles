@@ -1,0 +1,57 @@
+[
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-e": "editor::Hover"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "f f": "file_finder::Toggle",
+      "f o": "project_panel::ToggleFocus",
+      "J": [
+        "workspace::SendKeystrokes",
+        "9 j"
+      ],
+      "K": [
+        "workspace::SendKeystrokes",
+        "9 k"
+      ],
+      "ctrl-d": "outline::Toggle",
+      "ctrl-s": "workspace::NewSearch"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-w l": "workspace::ActivatePaneRight",
+      "ctrl-w h": "workspace::ActivatePaneLeft",
+      "ctrl-w k": "workspace::ActivatePaneUp",
+      "ctrl-w j": "workspace::ActivatePaneDown"
+    }
+  },
+  {
+    "context": "Editor || Terminal",
+    "bindings": {
+      "ctrl-w t": "terminal_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-w c": "pane::CloseAllItems"
+    }
+  },
+  {
+    "context": "FileFinder",
+    "bindings": {
+      "ctrl-v": "pane::SplitRight"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+    }
+  }
+]

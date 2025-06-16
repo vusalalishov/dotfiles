@@ -40,18 +40,17 @@ alias gd='g diff'
 alias gdca='g diff --cached'
 alias gpush='git push --set-upstream origin $(git branch --show-current)'
 alias gpull='git pull origin $(git branch --show-current)'
-alias gcomm='g commit --signoff -m'
+alias gc='g commit --signoff -m'
 alias gignore='vim .git/info/exclude'
 
 alias arm="env /usr/bin/arch -arm64 /bin/zsh --login"
-alias intel="env /usr/bin/arch -x86_64 /bin/zsh --login" 
+alias intel="env /usr/bin/arch -x86_64 /bin/zsh --login"
 
 alias n='lima nerdctl'
 alias mp='multipass'
 alias db='devbox'
-alias vim='nvim'
 
 alias http-server='python -m http.server'
 
-alias e='hx'
-alias r='vim -R'
+alias e='nvim'
+alias r='nvim -R'
