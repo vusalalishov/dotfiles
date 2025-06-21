@@ -1,0 +1,6 @@
+views:
+  vault.finleap.cloud/v1alpha1/vaultsecrets:
+    columns:
+      - NAME
+      - AGE
+      - SECRET:.spec.secretName
