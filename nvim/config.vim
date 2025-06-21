@@ -19,4 +19,6 @@ nmap <silent> <leader>P "*P
 
 nmap <silent> <C-j> 10j
 nmap <silent> <C-k> 10k
+vmap <silent> <C-j> 10j
+vmap <silent> <C-k> 10k
 nmap <silent> <C-x> :Ex<cr>

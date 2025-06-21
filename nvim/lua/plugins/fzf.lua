@@ -7,8 +7,8 @@ return {
     require("fzf-lua").setup({
       keymap = {
         builtin = {
-          ["<C-n>"] = "preview-down",
-          ["<C-p>"] = "preview-up",
+          ["<C-j>"] = "preview-down",
+          ["<C-k>"] = "preview-up",
         },
       },
     })

@@ -35,7 +35,8 @@
     "typos-lsp",
     "typescript",
     "typescript-language-server",
-    "nixd"
+    "nixd",
+    "detect-secrets"
   ],
   "shell": {
     "init_hook": [
