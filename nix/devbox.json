@@ -32,7 +32,10 @@
     "luajitPackages.luarocks_bootstrap",
     "lua51Packages.lua",
     "typos",
-    "typos-lsp"
+    "typos-lsp",
+    "typescript",
+    "typescript-language-server",
+    "nixd"
   ],
   "shell": {
     "init_hook": [
